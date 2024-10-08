@@ -1,6 +1,9 @@
 const express = require('express')
 require('dotenv').config()
 
+const pool = require('pool')
+const client = require('client')
+
 const app = express() 
 
 // listen for requests 

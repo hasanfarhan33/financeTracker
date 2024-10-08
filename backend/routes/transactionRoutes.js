@@ -1,9 +1,10 @@
-const express = require('express')
-
+ const express = require('express')
 const router = express.Router() 
 
+export default router; 
+
 // GET all transactions 
-router.get("/", (req, res) => {
+router.get("/", (req, res, next) => {
     res.json({msg: "GET all transactions"})
 })
 
@@ -23,8 +24,8 @@ router.delete("/:id", (req, res) => {
 })
 
 // UPDATE a transaction 
-router.patch("/:id", (req, res)=> {
-    res.json({mssg: "UPDATE a transaction"})
+router.patch("/:id", (req, res) => {
+    res.json({msg: "UPDATE a transaction"})
 })
 
 module.exports = router 
