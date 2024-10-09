@@ -1,15 +1,14 @@
 const express = require('express')
 require('dotenv').config()
 
-const pool = require('pool')
-const client = require('client')
 
 const app = express() 
 
 // listen for requests 
-const port = process.env.PORT || 4000 
+const port = process.env.MONGO_URI || 4000 
 
 const transactionRoutes = require("./routes/transactionRoutes")
+const userRoutes = require("./routes/userRoutes")
 
 app.use(express.json()) 
 
@@ -21,6 +20,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/api/transactions", transactionRoutes)
+app.use("/api/users", userRoutes)
 
 app.get("/", (req, res) => {
     res.json({"msg":"Welcome to the app!"})
